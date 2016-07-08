@@ -6,10 +6,11 @@
  * Time: 22:24
  */
 
-namespace Contacts\base;
+namespace App\Core;
 
 
-class EntityBase
+class RepositoryBase
 {
+    protected $entity;
 
 }

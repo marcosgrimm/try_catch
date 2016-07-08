@@ -6,7 +6,7 @@
  * Time: 22:24
  */
 
-namespace Contacts\base;
+namespace App\Core;
 
 
 class ServiceBase

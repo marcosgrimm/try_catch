@@ -6,14 +6,10 @@
  * Time: 22:12
  */
 
-namespace Contacts\Services;
+namespace App\Services;
 
-
-require_once 'base/ServiceBase.php';
-use Contacts\base\ServiceBase;
-
-require_once 'Repositories/ContactRepository.php';
-use Contacts\Repositories\ContactRepository;
+use App\Core\ServiceBase;
+use App\Repositories\ContactRepository;
 
 class ContactService extends ServiceBase
 {

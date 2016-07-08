@@ -6,20 +6,17 @@
  * Time: 22:10
  */
 
-namespace Contacts\Controllers;
+namespace App\Http\Controllers;
 
-require_once 'base/ControllerBase.php';
-use Contacts\base\ControllerBase;
-
-require_once 'Services/ContactService.php';
-use Contacts\Services\ContactService;
+use App\Core\ControllerBase;
+use App\Services\ContactService;
 
 class ContactController extends ControllerBase
 {
     private $service = 'ContactService';
 
     public function showAddress ($id){
-        $service = new ContactService;
+        $service = new ContactService();
         return json_encode($service->showAddress($id));
     }
 

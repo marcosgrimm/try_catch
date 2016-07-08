@@ -6,26 +6,26 @@
  * Time: 22:11
  */
 
-namespace Contacts\Repositories;
+namespace App\Repositories;
 
+use \App\Entities\Contact;
+use App\Core\RepositoryBase;
 
-
-require_once 'Entities/Contact.php';
-use \Contacts\Entities\Contact;
-
-class ContactRepository
+class ContactRepository extends RepositoryBase
 {
+
+    protected $entity = 'Contact';
 
 
     public function __construct()
     {
-        $this->entity = 'Contact';
+
     }
 
     function findAll()
     {
-        $file = fopen('storage/contacts.csv', 'r');
-
+        $basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -2)) . '/';
+        $file = fopen($_SERVER['DOCUMENT_ROOT'].$basepath.'storage/contacts.csv', 'r');
         while (($line = fgetcsv($file)) !== FALSE) {
             $contact = new Contact;
             $contact->setName($line[0]);
