@@ -8,10 +8,31 @@
 
 namespace App\Core;
 
-
-class ControllerBase
+abstract class ControllerBase
 {
-    private $entity;
-    private $service;
+    protected $service;
 
+    function __construct($service)
+    {
+
+        $this->service = $service;
+    }
+
+    /**
+     * @param mixed $service
+     * @return ControllerBase
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
 }

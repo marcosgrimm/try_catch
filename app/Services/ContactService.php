@@ -9,15 +9,12 @@
 namespace App\Services;
 
 use App\Core\ServiceBase;
-use App\Repositories\ContactRepository;
 
 class ContactService extends ServiceBase
 {
-    private $repository = 'ContactRepository';
 
     public function showAddress($id){
-        $obRepository = new ContactRepository;
-        $contacts = $obRepository->findAll();
+        $contacts = $this->getRepository()->findAll();
 
         foreach($contacts as $contact){
             $addresses[] = $contact->getStreet();
@@ -26,8 +23,7 @@ class ContactService extends ServiceBase
     }
 
     public function showName($id){
-        $obRepository = new ContactRepository;
-        $contacts = $obRepository->findAll();
+        $contacts = $contacts = $this->getRepository()->findAll();
 
         foreach($contacts as $contact){
             $addresses[] = $contact->getName();

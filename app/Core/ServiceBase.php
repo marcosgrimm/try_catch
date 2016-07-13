@@ -8,8 +8,8 @@
 
 namespace App\Core;
 
-
-class ServiceBase
+use App\Interfaces\ContactRepositoryInterface;
+abstract class ServiceBase
 {
     private $repository;
 
@@ -17,7 +17,23 @@ class ServiceBase
      * ContactService constructor.
      * @param null $repository
      */
-    public function __construct($repository = null)
+    public function __construct(ContactRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @return ContactRepositoryInterface|null
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
+
+    /**
+     * @param ContactRepositoryInterface|null $repository
+     */
+    public function setRepository($repository)
     {
         $this->repository = $repository;
     }

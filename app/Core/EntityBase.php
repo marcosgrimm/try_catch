@@ -9,7 +9,7 @@
 namespace App\Core;
 
 
-class EntityBase
+abstract class EntityBase
 {
 
 }

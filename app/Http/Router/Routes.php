@@ -8,6 +8,10 @@
 namespace App\Http\Router;
 
 use App\Http\Controllers\ContactController;
+use App\Entities\Contact;
+
+use App\Repositories\CSVContactRepository;
+use App\Services\ContactService;
 
 class Routes {
 
@@ -19,7 +23,7 @@ class Routes {
         $routes = explode('/', $base_url);
 
         if($routes[0] == "Contact") {
-            $controller = new ContactController();
+            $controller = new ContactController(new ContactService(new CSVContactRepository(new Contact)));
 
             if (isset($routes[1]) && is_numeric($routes[1])){
                 $contactId = $routes[1];
